@@ -1,7 +1,7 @@
 version: '3'
 services:
   example:
-    image: ${PHP_IMAGE}
+    image: mijnlampimage
     volumes:
       - ./html_apache_php_mysql:/var/www/html
     ports:
@@ -25,9 +25,4 @@ services:
       MYSQL_DATABASE: ${DATABASE_DB}
       MYSQL_USER: ${DATABASE_USER}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
-
-  adminer:
-    image: adminer
-    ports:
-      - "8081:8080"
 

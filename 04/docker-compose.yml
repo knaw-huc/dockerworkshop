@@ -3,6 +3,6 @@ services:
   example:
     image: php:8.1-apache
     volumes:
-      - ./html_apache_php:/var/www/html
+      - ./html:/var/www/html
     ports:
       - "8084:80"

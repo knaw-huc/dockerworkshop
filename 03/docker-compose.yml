@@ -1,0 +1,9 @@
+version: '3'
+services:
+  example:
+    image: httpd:2.4
+    volumes:
+      - ./html:/usr/local/apache2/htdocs
+      - ./apacheconf/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    ports:
+      - "8084:80"
