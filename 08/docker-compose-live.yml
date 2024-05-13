@@ -1,0 +1,25 @@
+version: '3'
+
+networks:
+  nginxproxynetwork:
+    external:
+      name: nginxproxynetwork
+
+services:
+  example:
+    image: registry.huc.knaw.nl/mijnlampimage
+    volumes:
+      - ./html_apache_php_mysql:/var/www/html
+    expose:
+      - "80"
+    environment:
+      TZ: Europe/Amsterdam
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_DB: ${DATABASE_DB}
+      VIRTUAL_HOST: dockerexample.diginfra.org
+    networks:
+      - nginxproxynetwork
+    restart: always
+

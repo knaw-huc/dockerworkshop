@@ -1,0 +1,17 @@
+version: "2"
+networks:
+  nginxproxynetwork:
+    external:
+      name: nginxproxynetwork
+services:
+  nginxproxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    environment:
+      TRUST_DOWNSTREAM_PROXY: "true"
+    networks:
+      - nginxproxynetwork
+    restart: always

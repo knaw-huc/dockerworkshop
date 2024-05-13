@@ -1,0 +1,36 @@
+version: '3'
+services:
+  example:
+    image: mijnlampimage
+    volumes:
+      - ./html_apache_php_mysql:/var/www/html
+    ports:
+      - "8084:80"
+    environment:
+      TZ: Europe/Amsterdam
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_DB: ${DATABASE_DB}
+    depends_on:
+      - example-db
+
+  example-db:
+    image: mariadb:10.4
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+      - example-mysql:/var/lib/mysql
+    environment:
+      TZ: Europe/Amsterdam
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_DB}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080"
+
+volumes:
+  example-mysql:
