@@ -1,9 +1,10 @@
 version: '3'
 services:
   example:
+#    image: php:8.1-apache
     image: mijnlampimage
     volumes:
-      - ./html_apache_php_mysql:/var/www/html
+      - ./html:/var/www/html
     ports:
       - "8084:80"
     environment:
