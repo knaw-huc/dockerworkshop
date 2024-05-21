@@ -65,3 +65,5 @@ Dit is het proces waar het om gaat in de container. Als dat proces stopt, stopt 
 Verder: het proces met process id 1 **draait zowel in de container als op de host**. In de container onder id 1, op de host onder een door de host toegekende hogere id. Demonstratie: Meertens-dockerhost.
 
 Extra complicatie: dit voorbeeld van de container-processen tonen die op de host draaien gaat niet werken op docker voor Mac of Windows, alleen op Linux-hosts. Waarom? Omdat docker gebaseerd is op Linux-technologieën. Docker op Mac of Windows draait op een verborgen Linux-virtuele machine.
+
+#testLiliana
