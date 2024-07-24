@@ -20,7 +20,7 @@ Het image "docker/welcome-to-docker" wordt eerst gedownload van hub.docker.com, 
 Dit image is geconfigureerd om een nginx webserver te starten. Op mijn computer heb ik geen nginx, maar zodra de container gestart is kan ik op localhost poort 8088 de nginx in de container benaderen.
 
 ```shell
-docker exec -it <id> /bin/bash
+docker exec -it <id> /bin/bash #docker exec: execute a command in a running container
 docker exec -it <id> /bin/sh
 ```
 
@@ -50,9 +50,9 @@ docker system <parameter>
 nuttig voor dagelijks gebruik:
 
 ```shell
-docker system df
-docker system prune
-docker system prune -a
+docker system df #displays information regarding the amount of disk space used by the Docker daemon
+docker system prune #remove all unused containers, networks, images...
+docker system prune -a #remove all unused images not just dangling ones
 ```
 
 en nog veel meer, zie docs
@@ -66,4 +66,6 @@ Verder: het proces met process id 1 **draait zowel in de container als op de hos
 
 Extra complicatie: dit voorbeeld van de container-processen tonen die op de host draaien gaat niet werken op docker voor Mac of Windows, alleen op Linux-hosts. Waarom? Omdat docker gebaseerd is op Linux-technologieën. Docker op Mac of Windows draait op een verborgen Linux-virtuele machine.
 
-#testLiliana
+Docker heeft overeenkomsten met virtuele machines, maar er zijn belangrijke verschillen. Het volgende diagram illustreert die. Krediet: Data Camp cursus “Introduction to Docker"
+
+![alt text]https://github.com/knaw-huc/dockerworkshop/blob/main/assets/docker-vs-virtual_machines_diagram.png?raw=true)
